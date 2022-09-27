@@ -17,7 +17,7 @@ function app() {
                 choices: [
                     "Adicionar tarefa.",
                     "Listar tarefas.",
-                    "Remover tarefa."
+                    "Sair."
                 ]
             },
         ]
@@ -30,6 +30,11 @@ function app() {
 
         else if (option === "Listar tarefas.")
             showTasks();
+
+        else if (option === "Sair.") {
+            console.log(chalk.green("🙂 Feito"));
+            process.exit();
+        }
     })
 }
 
@@ -67,7 +72,7 @@ function showTasks() {
     const tasks = data.tasks;
 
     if (tasks.length == 0) {
-        console.log(chalk.bgYellow.black.bold("Não há tarefas para exibir."))
+        console.log(chalk.yellow("😴 Não há tarefas para exibir."));
         return app();
     }
 
